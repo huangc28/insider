@@ -24,7 +24,7 @@ $app->get('/', function () use ($app) {
         $dbh = new PDO("pgsql:host=$hostname;dbname=$dbname", $username, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
-        echo "Connected to the database at hostname 'postgres': " . gethostbyname('postgres') . "\n";
+        echo "BRYAN: Connected to the database at hostname 'postgres': " . gethostbyname('postgres') . "\n";
     } catch(Exception $e) {
         echo $e->getMessage();
     }
