@@ -1,3 +1,34 @@
+# profiteer
+
+## Folder structure
+
+```
+app
+ |
+ |-- Console
+ |-- Domain
+ |      |-- User.php
+ |      |-- UserRepository.php // implementation of user repository interface
+ |      |-- UserRepositoryInterface.php // interface
+ |      |-- Commands
+ |      |       |-- FooCommand.php
+ |      |       |-- BarCommand.php
+ |      |
+ |      |-- Handlers
+ |      |       |-- FooCommandHandler.php
+ |      |       |-- BarCommandHandler.php
+ |      |
+ |      |-- Services
+ |             |-- FooServices.php
+ |
+ |-- HTTP
+ |     |-- Controllers
+ |              |-- FooController.php
+ |-- Providers
+ |     |-- DomainServiceProvider.php
+```
+
+
 ## Testing
 
 All test suites run sql with **sqlite** that uses memory for performance concerns. It does not touch real DB environment when in **testing** environment.

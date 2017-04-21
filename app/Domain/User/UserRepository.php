@@ -2,7 +2,8 @@
 
 namespace App\Domain\User;
 
-class UserRepository {
+class UserRepository implements UserRepositoryInterface
+{
 
     /**
      * User model instance

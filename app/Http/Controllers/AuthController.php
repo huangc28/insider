@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Domain\User\UserRepository;
+use App\Domain\User\UserRepositoryInterface;
 
 class AuthController extends BaseController
 {
@@ -18,7 +18,7 @@ class AuthController extends BaseController
      * @param App\Domain\User\UserRepository
      * @return void
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepositoryInterface $user)
     {
         $this->user = $user;
     }

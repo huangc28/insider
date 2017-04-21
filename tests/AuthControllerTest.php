@@ -23,7 +23,6 @@ class AuthControllerTest extends TestCase
      */
     public function testLoginSuccess()
     {
-        // var_dump('test login success');
         $response = $this->call('POST', '/login', [
           'email' => 'test@gmail',
           'password' => 'passwordabc'
