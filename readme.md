@@ -1,21 +1,19 @@
-# Lumen PHP Framework
+## Testing
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+All test suites run sql with **sqlite** that uses memory for performance concerns. It does not touch real DB environment when in **testing** environment.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Coding Style
 
-## Official Documentation
+This project follows the coding style of `PSR2` in which laravel itself is following. Following instructions indicate how to install code sniffer following `PSR2` in **VScode**.
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+### VScode PSR-2 style sniffer
 
-## Security Vulnerabilities
+1. Install [phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs).
+2. Install [pear](https://coolestguidesontheplanet.com/installing-pear-on-osx-10-11-el-capitan/).
+3. Install PHP_CodeSniffer `pear install PHP_CodeSniffer`
+4. Set the default coding style check to `PSR-2` by prompting `phpcs --config-set default_standard PSR2`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+You now will be notified in any error violating `PSR-2`
 
-## License
+Happy Coding!
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

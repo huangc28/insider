@@ -25,7 +25,14 @@ $app->get('/', function () use ($app) {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
         echo "BRYAN: Connected to the database at hostname 'postgres': " . gethostbyname('postgres') . "\n";
-    } catch(Exception $e) {
+        echo "BRYAN: Connected to the database at hostname 'profiteer_postgres_1': " . gethostbyname('profiteer_postgres_1'). "\n";
+
+    } catch (Exception $e) {
         echo $e->getMessage();
     }
 });
+
+$app->post('/login', [
+    'as' => 'auth.login',
+    'uses' => 'AuthController@login'
+]);
