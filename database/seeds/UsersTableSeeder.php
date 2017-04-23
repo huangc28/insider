@@ -11,6 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
+
         DB::table('users')->insert([
             [
                 'username' => str_random(10),
@@ -20,7 +22,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'username' => 'test',
-                'email' => 'test@gmail',
+                'email' => 'test@gmail.com',
                 'password' => str_random(10),
                 'api_token' => 'testtoken1'
             ]

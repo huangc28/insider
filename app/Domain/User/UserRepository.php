@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Domain\User;
+<?php namespace App\Domain\User;
 
 class UserRepository implements UserRepositoryInterface
 {

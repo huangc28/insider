@@ -15,7 +15,7 @@ class AuthController extends BaseController
     protected $user;
 
     /**
-     * @param App\Domain\User\UserRepository
+     * @param App\Domain\User\UserRepositoryInterface
      * @return void
      */
     public function __construct(UserRepositoryInterface $user)
@@ -23,19 +23,39 @@ class AuthController extends BaseController
         $this->user = $user;
     }
 
+    /**
+     * Generate api token for user tries to login
+     *
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\Http\Response
+     */
     public function login(Request $request)
     {
         // check for input, email and password
         if ($request->has('email') && $request->has('password')) {
-            $email = $request->input('email');
 
             // retrieve user according to email and password
-            $user = $this->user->findUserByEmail($email);
+            $user = $this->user->findUserByEmail(
+                $request->input('email')
+            );
 
             // user is found
-            if (is_null($user) !== null)
+            if (is_null($user) !== true)
             {
                 try {
+                    // check if password matches.
+                    if ($request->input('password') !== $user->password)
+                    {
+                        return response()->json([
+                            'status' => 400,
+                            'error' => [
+                                'message' => 'please insert correct password'
+                            ]
+                        ]);
+                    }
+
+                    // if password matches, generate api token
+
                     // generate api_token
                     $token = str_random(10);
 
@@ -62,7 +82,7 @@ class AuthController extends BaseController
             return response()->json([
                 'status' => 404,
                 'error' => [
-                    'message' => 'user not found',
+                    'message' => 'user not found'
                 ]
             ]);
         }
